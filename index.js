@@ -64,4 +64,6 @@ async function invokeAction({ action, id, name, email, phone }) {
   }
 }
 
-(async () => await invokeAction(argv))();
+(async function () {
+  await invokeAction(argv);
+})();
