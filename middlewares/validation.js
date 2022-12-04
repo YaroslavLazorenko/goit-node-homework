@@ -1,13 +1,12 @@
-const validateBody = (schema) => async (req, res, next) => {
-  try {
-    await schema.validateAsync(req.body);
-    next();
-  } catch (err) {
-    console.warn(err.details);
-    return res
-      .status(400)
-      .json({ status: "error", code: 400, message: err.message });
+const { HttpError } = require("../helpers");
+
+const validateBody = (schema) => (req, _, next) => {
+  const { error } = schema.validate(req.body);
+
+  if (error) {
+    next(HttpError(400, error.message));
   }
+  next();
 };
 
 module.exports = validateBody;

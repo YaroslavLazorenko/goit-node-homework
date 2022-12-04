@@ -1,12 +1,14 @@
 const { updateContact } = require("../../models/contacts");
+const { HttpError } = require("../../helpers");
 
 const updateById = async (req, res, _) => {
   const result = await updateContact(req.params.contactId, req.body);
-  if (!result)
-    return res
-      .status(404)
-      .json({ status: "error", code: 404, message: "Not found" });
-  res.json({ status: "success", code: 200, data: { result } });
+
+  if (!result) {
+    throw HttpError(404);
+  }
+
+  res.json(result);
 };
 
 module.exports = updateById;
