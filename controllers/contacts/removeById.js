@@ -9,7 +9,7 @@ const removeById = async (req, res, _) => {
   }
 
   res.json({
-    message: "Delete success",
+    message: "Contact deleted",
   });
 };
 
