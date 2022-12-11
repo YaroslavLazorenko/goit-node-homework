@@ -15,6 +15,6 @@ mongoose
     })
   )
   .catch((err) => {
-    console.log(err.message);
+    console.warn(`\x1B[31m${err.message}`);
     process.exit(1);
   });
