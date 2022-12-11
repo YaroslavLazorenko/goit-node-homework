@@ -8,10 +8,11 @@ const updateContactSchema = Joi.object({
     "string.empty": "Email field cannot be an empty string",
   }),
   phone: Joi.string()
-    .regex(/^\d{3}-\d{3}-\d{4}$/)
+    .regex(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)
     .messages({
       "string.empty": "Phone number field cannot be an empty string",
     }),
+  favorite: Joi.boolean(),
 })
   .required()
   .min(1)
