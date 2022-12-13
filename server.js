@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const app = require("./app");
-const { DEFAULT_SERVER_PORT } = require("./libs/consts");
+const { DEFAULT_SERVER_PORT } = require("./consts");
 
 mongoose.set("strictQuery", false);
 

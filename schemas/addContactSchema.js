@@ -1,5 +1,7 @@
 const Joi = require("joi");
 
+const { PHONE_REG_EXP } = require("../consts");
+
 const addContactSchema = Joi.object({
   name: Joi.string().min(2).max(30).required().messages({
     "any.required": "Missing required name field",
@@ -13,13 +15,10 @@ const addContactSchema = Joi.object({
       "any.required": "Missing required email field",
       "string.empty": "Email field cannot be an empty string",
     }),
-  phone: Joi.string()
-    .regex(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)
-    .required()
-    .messages({
-      "any.required": "Missing required phone number field",
-      "string.empty": "Phone number field cannot be an empty string",
-    }),
+  phone: Joi.string().regex(PHONE_REG_EXP).required().messages({
+    "any.required": "Missing required phone number field",
+    "string.empty": "Phone number field cannot be an empty string",
+  }),
   favorite: Joi.boolean(),
 });
 

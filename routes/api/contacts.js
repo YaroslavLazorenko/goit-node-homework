@@ -13,29 +13,31 @@ const {
   updateContactSchema,
   updateStatusSchema,
 } = require("../../schemas");
-const { validateBody } = require("../../middlewares");
+const { isValidId, validateBody } = require("../../middlewares");
 const { ctrlWrapper } = require("../../helpers");
 
 const router = express.Router();
 
 router.get("/", ctrlWrapper(getAll));
 
-router.get("/:contactId", ctrlWrapper(getById));
+router.get("/:id", isValidId, ctrlWrapper(getById));
 
 router.post("/", validateBody(addContactSchema), ctrlWrapper(add));
 
-router.delete("/:contactId", ctrlWrapper(removeById));
-
 router.put(
-  "/:contactId",
+  "/:id",
+  isValidId,
   validateBody(updateContactSchema),
   ctrlWrapper(updateById)
 );
 
 router.patch(
-  "/:contactId/favorite",
+  "/:id/favorite",
+  isValidId,
   validateBody(updateStatusSchema),
   ctrlWrapper(updateStatusContact)
 );
+
+router.delete("/:id", isValidId, ctrlWrapper(removeById));
 
 module.exports = router;
