@@ -1,4 +1,4 @@
-const { ERROR_MESSAGES } = require("../libs/consts");
+const { ERROR_MESSAGES } = require("../consts");
 
 const HttpError = (status, message = ERROR_MESSAGES[status]) => {
   const error = new Error(message);
