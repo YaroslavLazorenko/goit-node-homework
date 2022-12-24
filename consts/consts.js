@@ -9,9 +9,11 @@ const ERROR_MESSAGES = {
 };
 
 const PHONE_REG_EXP = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+const EMAIL_REG_EXP = /^\S+@\S+\.\S+$/;
 
 module.exports = {
   DEFAULT_SERVER_PORT,
   ERROR_MESSAGES,
   PHONE_REG_EXP,
+  EMAIL_REG_EXP,
 };

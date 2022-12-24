@@ -12,7 +12,7 @@ const {
   addContactSchema,
   updateContactSchema,
   updateStatusSchema,
-} = require("../../schemas");
+} = require("../../schemas/contact");
 const { isValidId, validateBody } = require("../../middlewares");
 const { ctrlWrapper } = require("../../helpers");
 
