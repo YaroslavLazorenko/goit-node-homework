@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const { handleMongooseError } = require("../helpers");
-const { PHONE_REG_EXP } = require("../consts");
+const { PHONE_REG_EXP, EMAIL_REG_EXP } = require("../consts");
 
 const contactSchema = new Schema(
   {
@@ -11,6 +11,7 @@ const contactSchema = new Schema(
     },
     email: {
       type: String,
+      match: EMAIL_REG_EXP,
     },
     phone: {
       type: String,
@@ -19,6 +20,11 @@ const contactSchema = new Schema(
     favorite: {
       type: Boolean,
       default: false,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
     },
   },
   { versionKey: false, timestamps: true }
