@@ -4,14 +4,9 @@ const path = require("path");
 const { User } = require("../../models");
 const { resizeAvatar } = require("../../helpers");
 
-const { USERS_AVATARS_DIRECTORY } = require("../../consts");
+const { USERS_AVATARS_DIR } = require("../../consts");
 
-const avatarsDir = path.join(
-  __dirname,
-  "../../",
-  "public",
-  USERS_AVATARS_DIRECTORY
-);
+const avatarsDir = path.join(__dirname, "../../", "public", USERS_AVATARS_DIR);
 
 const updateAvatar = async (req, res) => {
   const { path: tempUpload, originalname } = req.file;
@@ -27,7 +22,7 @@ const updateAvatar = async (req, res) => {
     quality: 70,
   });
 
-  const avatarURL = path.join(USERS_AVATARS_DIRECTORY, filename);
+  const avatarURL = path.join(USERS_AVATARS_DIR, filename);
   await User.findByIdAndUpdate(_id, { avatarURL });
 
   res.json({
