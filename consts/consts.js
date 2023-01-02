@@ -11,9 +11,14 @@ const ERROR_MESSAGES = {
 const PHONE_REG_EXP = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
 const EMAIL_REG_EXP = /^\S+@\S+\.\S+$/;
 
+const TEMP_DIR = "tmp";
+const USERS_AVATARS_DIR = "avatars";
+
 module.exports = {
   DEFAULT_SERVER_PORT,
   ERROR_MESSAGES,
   PHONE_REG_EXP,
   EMAIL_REG_EXP,
+  TEMP_DIR,
+  USERS_AVATARS_DIR,
 };

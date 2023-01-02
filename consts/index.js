@@ -3,6 +3,8 @@ const {
   ERROR_MESSAGES,
   PHONE_REG_EXP,
   EMAIL_REG_EXP,
+  TEMP_DIR,
+  USERS_AVATARS_DIR,
 } = require("./consts");
 
 module.exports = {
@@ -10,4 +12,6 @@ module.exports = {
   ERROR_MESSAGES,
   PHONE_REG_EXP,
   EMAIL_REG_EXP,
+  TEMP_DIR,
+  USERS_AVATARS_DIR,
 };
