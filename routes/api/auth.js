@@ -8,9 +8,10 @@ const {
   updateSubscription,
   updateAvatar,
   verifyUser,
+  repeatVerifyUser
 } = require("../../controllers/auth");
 
-const { authSchema, updateSubscriptionSchema } = require("../../schemas/user");
+const { authSchema, updateSubscriptionSchema,repeatVerifyUserSchema } = require("../../schemas/user");
 const { validateBody, authenticate, upload } = require("../../middlewares");
 const { ctrlWrapper } = require("../../helpers");
 
@@ -39,5 +40,11 @@ router.patch(
 );
 
 router.get("/verify/:verificationToken", ctrlWrapper(verifyUser));
+
+router.post(
+  "/verify",
+  validateBody(repeatVerifyUserSchema),
+  ctrlWrapper(repeatVerifyUser)
+);
 
 module.exports = router;
