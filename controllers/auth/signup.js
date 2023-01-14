@@ -29,7 +29,6 @@ const signup = async (req, res, next) => {
 
   const mail = {
     to: email,
-    from: "lazorenko85@gmail.com",
     subject: "Email confirmation",
     html: `<a target="_blank" href='${BASE_URL}/api/users/verify/${verificationToken}'>Hello! Please, click this link to confirm your email</a>`,
   };

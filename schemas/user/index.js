@@ -1,9 +1,9 @@
 const authSchema = require("./authSchema");
 const updateSubscriptionSchema = require("./updateSubscriptionSchema");
-const repeatVerifyUserSchema = require("./repeatVerifyUserSchema");
+const resendVerifyEmailSchema = require("./resendVerifyEmailSchema");
 
 module.exports = {
   authSchema,
   updateSubscriptionSchema,
-  repeatVerifyUserSchema,
+  resendVerifyEmailSchema,
 };

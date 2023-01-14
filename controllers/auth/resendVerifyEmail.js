@@ -3,7 +3,7 @@ const { User } = require("../../models");
 const { sendMail } = require("../../helpers");
 const { BASE_URL } = require("../../consts");
 
-const repeatVerifyUser = async (req, res, next) => {
+const resendVerifyEmail = async (req, res, next) => {
   const { email } = req.body;
   const user = await User.findOne({ email });
 
@@ -16,7 +16,6 @@ const repeatVerifyUser = async (req, res, next) => {
 
   const mail = {
     to: email,
-    from: "lazorenko85@gmail.com",
     subject: "Email confirmation",
     html: `<a target="_blank" href='${BASE_URL}/api/users/verify/${user.verificationToken}'>Hello! Please, click this link to confirm your email</a>`,
   };
@@ -30,4 +29,4 @@ const repeatVerifyUser = async (req, res, next) => {
   res.json({ message: "Verification email sent" });
 };
 
-module.exports = repeatVerifyUser;
+module.exports = resendVerifyEmail;

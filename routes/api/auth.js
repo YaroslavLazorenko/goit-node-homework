@@ -7,11 +7,15 @@ const {
   current,
   updateSubscription,
   updateAvatar,
-  verifyUser,
-  repeatVerifyUser
+  verifyEmail,
+  resendVerifyEmail,
 } = require("../../controllers/auth");
 
-const { authSchema, updateSubscriptionSchema,repeatVerifyUserSchema } = require("../../schemas/user");
+const {
+  authSchema,
+  updateSubscriptionSchema,
+  resendVerifyEmailSchema,
+} = require("../../schemas/user");
 const { validateBody, authenticate, upload } = require("../../middlewares");
 const { ctrlWrapper } = require("../../helpers");
 
@@ -39,12 +43,12 @@ router.patch(
   ctrlWrapper(updateAvatar)
 );
 
-router.get("/verify/:verificationToken", ctrlWrapper(verifyUser));
+router.get("/verify/:verificationToken", ctrlWrapper(verifyEmail));
 
 router.post(
   "/verify",
-  validateBody(repeatVerifyUserSchema),
-  ctrlWrapper(repeatVerifyUser)
+  validateBody(resendVerifyEmailSchema),
+  ctrlWrapper(resendVerifyEmail)
 );
 
 module.exports = router;
