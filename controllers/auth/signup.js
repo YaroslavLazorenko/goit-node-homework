@@ -1,14 +1,14 @@
 const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 const { nanoid } = require("nanoid");
-const { sendMail } = require("../../helpers");
+const { sendMail } = require("../../services/email");
 const { BASE_URL } = require("../../consts");
 
 const { User } = require("../../models");
 
 const { HttpError } = require("../../helpers");
 
-const signup = async (req, res, next) => {
+const signup = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

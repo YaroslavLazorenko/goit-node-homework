@@ -1,9 +1,9 @@
 const { HttpError } = require("../../helpers");
 const { User } = require("../../models");
-const { sendMail } = require("../../helpers");
+const { sendMail } = require("../../services/email");
 const { BASE_URL } = require("../../consts");
 
-const resendVerifyEmail = async (req, res, next) => {
+const resendVerifyEmail = async (req, res) => {
   const { email } = req.body;
   const user = await User.findOne({ email });
 
