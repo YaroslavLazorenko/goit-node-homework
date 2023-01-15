@@ -2,7 +2,8 @@ const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 const { nanoid } = require("nanoid");
 const { sendMail } = require("../../services/email");
-const { BASE_URL } = require("../../consts");
+
+const { BASE_URL } = process.env;
 
 const { User } = require("../../models");
 

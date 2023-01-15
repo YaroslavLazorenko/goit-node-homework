@@ -5,8 +5,6 @@ const {
   EMAIL_REG_EXP,
   TEMP_DIR,
   USERS_AVATARS_DIR,
-  BASE_URL,
-  SENDER_EMAIL,
 } = require("./consts");
 
 module.exports = {
@@ -16,6 +14,4 @@ module.exports = {
   EMAIL_REG_EXP,
   TEMP_DIR,
   USERS_AVATARS_DIR,
-  BASE_URL,
-  SENDER_EMAIL,
 };
