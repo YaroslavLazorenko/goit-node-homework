@@ -15,7 +15,7 @@ const TEMP_DIR = "tmp";
 const USERS_AVATARS_DIR = "avatars";
 
 const BASE_URL = "http://localhost:3000";
-const SENDER_EMAIL = "lazorenko85@gmail.com"
+const SENDER_EMAIL = "lazorenko85@gmail.com";
 
 module.exports = {
   DEFAULT_SERVER_PORT,

@@ -33,11 +33,7 @@ const signup = async (req, res, next) => {
     html: `<a target="_blank" href='${BASE_URL}/api/users/verify/${verificationToken}'>Hello! Please, click this link to confirm your email</a>`,
   };
 
-  try {
-    await sendMail(mail);
-  } catch (err) {
-    return next(err);
-  }
+  await sendMail(mail);
 
   res.status(201).json({
     user: {
